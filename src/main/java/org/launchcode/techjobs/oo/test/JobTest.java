@@ -7,6 +7,8 @@ import org.launchcode.techjobs.oo.*;
 
 import javax.lang.model.element.Name;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 /**
@@ -47,6 +49,32 @@ public class JobTest {
 
       assertTrue(!(newjob1.equals(newjob2)));
   }
+    @Test
+        public void testToStringStartsAndEndsWithNewLine(){
 
+        Job stringjob = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+          assertEquals(true,stringjob.toString().startsWith("\n"));
+          assertEquals(true,stringjob.toString().endsWith("\n"));
+    }
+
+    @Test
+        public void testToStringContainsCorrectLabelsAndData(){
+        Job stringjob = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
+                new PositionType("Quality control"), new CoreCompetency("Persistence"));
+
+        assertTrue(stringjob.toString().contains("ID: " + stringjob.getId()));
+        assertTrue(stringjob.toString().contains("Name: " + stringjob.getName()));
+        assertTrue(stringjob.toString().contains("Employer: " + stringjob.getEmployer().getValue()));
+        assertTrue(stringjob.toString().contains("Location: " + stringjob.getLocation().getValue()));
+        assertTrue(stringjob.toString().contains("Position Type: " + stringjob.getPositionType().getValue()));
+        assertTrue(stringjob.toString().contains("Core Competency: " + stringjob.getCoreCompetency().getValue()));
+
+    }
+    @Test
+    public void testToStringHandlesEmptyField(){
+        assertTrue();
+    }
 
 }
