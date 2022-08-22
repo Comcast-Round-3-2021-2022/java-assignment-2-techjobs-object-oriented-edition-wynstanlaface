@@ -18,8 +18,8 @@ public class Job {
     //  the 'id' field.
 
     public Job() {
-         id = nextId;
-         nextId++;
+        id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -97,13 +97,25 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public String toString(){
+    public String toString() {
+        if (this.name.isEmpty()){
+            this.name = "Data not available";}
+        if (getEmployer().getValue().isEmpty()){
+            getEmployer().setValue("Data not available");}
+        if (getLocation().getValue().isEmpty()){
+            getLocation().setValue("Data not available");}
+        if (getPositionType().getValue().isEmpty()){
+            getPositionType().setValue("Data not available");}
+        if (getCoreCompetency().getValue().isEmpty()){
+            getCoreCompetency().setValue("Data not available");}
+
         return ("\n" +
-                "ID: " + getId() +
-                "Name: " + getName() +
-                "Employer: " + getEmployer().getValue() +
-                "Location: " + getLocation().getValue() +
-                "Position Type: " + getPositionType().getValue()+
-                "Core Competency: " +getCoreCompetency().getValue() +"\n");
+                "ID: " + getId() + "\n" +
+                "Name: " + getName() + "\n" +
+                "Employer: " + getEmployer().getValue() + "\n" +
+                "Location: " + getLocation().getValue() + "\n" +
+                "Position Type: " + getPositionType().getValue() + "\n" +
+                "Core Competency: " + getCoreCompetency().getValue() + "\n");
+
     }
 }
