@@ -4,13 +4,13 @@ import java.util.Objects;
 
 public abstract class JobField {
 
-    private int ID;
-    private static int nextID = 1;
+    private int id;
+    private static int nextId = 1;
     private String value;
     // automatically assign a unique Id with no-arg constructor
     public JobField(){
-        this.ID=nextID;
-        nextID++;
+        this.id=nextId;
+        nextId++;
     }
     public JobField(String value) {
         this();
@@ -18,8 +18,8 @@ public abstract class JobField {
     }
 
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getValue() {
@@ -35,19 +35,16 @@ public abstract class JobField {
         if (this == o) return true;
         if (!(o instanceof JobField)) return false;
         JobField jobField = (JobField) o;
-        return getID() == jobField.getID();
+        return getId() == jobField.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getID());
+        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
-        return "JobField{" +
-                "ID=" + ID +
-                ", value='" + value + '\'' +
-                '}';
+        return  value;
     }
 }
