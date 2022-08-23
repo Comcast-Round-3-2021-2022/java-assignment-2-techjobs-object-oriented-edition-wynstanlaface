@@ -17,10 +17,10 @@ import static org.junit.Assert.*;
 @RunWith(JUnit4.class)
 public class JobTest {
   @Test
-    public void testSettingJobId(){ //check assigned IDs and confirm inequality(difference of 1)
+    public void testSettingJobId(){ //check assigned IDs and confirm inequality
       Job testjob1 = new Job();
       Job testjob2 = new Job();
-      assertNotEquals(testjob1.getId(),testjob2.getId(),1);
+      assertNotEquals(testjob1.getId(),testjob2.getId());
   }
 
   @Test
@@ -73,11 +73,11 @@ public class JobTest {
                         new CoreCompetency("Persistence"));
 
         assertEquals(stringjob.toString(),"\n" +
-                "ID: " + stringjob.getId() + "\r" +
-                "Name: " + stringjob.getName() + "\r" +
-                "Employer: " + stringjob.getEmployer().getValue() + "\r" +
-                "Location: " + stringjob.getLocation().getValue() + "\r" +
-                "Position Type: " + stringjob.getPositionType().getValue() + "\r" +
+                "ID: " + stringjob.getId() + "\n" +
+                "Name: " + stringjob.getName() + "\n" +
+                "Employer: " + stringjob.getEmployer().getValue() + "\n" +
+                "Location: " + stringjob.getLocation().getValue() + "\n" +
+                "Position Type: " + stringjob.getPositionType().getValue() + "\n" +
                 "Core Competency: " + stringjob.getCoreCompetency().getValue() + "\n");
 
 
